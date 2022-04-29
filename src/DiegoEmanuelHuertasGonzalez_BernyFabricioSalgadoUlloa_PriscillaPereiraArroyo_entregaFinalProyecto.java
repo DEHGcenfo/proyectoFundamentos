@@ -69,12 +69,15 @@ public class DiegoEmanuelHuertasGonzalez_BernyFabricioSalgadoUlloa_PriscillaPere
             break;
             
             case 7:
+                imprimirEquicoMasPartidos(equipos, numJuegos);
             break;
             
             case 8:
+                imprimirEquicoMenosPartidos(equipos, numJuegos);
             break;
             
             case 9:
+            imprimirEquipos5Partidos(equipos, numJuegos);
             break;
             
             case 10:
@@ -234,6 +237,78 @@ public class DiegoEmanuelHuertasGonzalez_BernyFabricioSalgadoUlloa_PriscillaPere
         out.println("\nEl promedio de openentes diferentes para cada equipo del torneo es: " + promedio);
         return promedio;
     }
+    //Funcion 7 - imprime el equipo con mas partidos jugados
+    public static void imprimirEquicoMasPartidos(String [] equipos, int [] numJuegos){
+        String equipoMayor = "";
+        int numJuegosM = 0;
+        
+        for (int i = 0; i<equipos.length; i++){
+            
+            if(i>0){
+                if(i==1){
+                    if(numJuegos[i] > numJuegos[i-1] && numJuegos[i] > numJuegosM){
+                        numJuegosM = numJuegos[i];
+                        equipoMayor = equipos[i];
+                    
+                    } else if(numJuegos[i]<numJuegos[i-1] && numJuegos[i] > numJuegosM){
+                        equipoMayor = equipos[i-1];
+                    }
+                }
+                
+            }
+            
+        }
+        out.println("El equipo con mas partidos corresponde a: "+ equipoMayor);
+    } 
+    // funcion 8 - Imprime el equipo con menos partidos jugados
+    public static void imprimirEquicoMenosPartidos(String [] equipos, int [] numJuegos){
+        String equipoMenor = "";
+        int numJuegosM = 0;
+        
+        for (int i = 0; i<equipos.length; i++){
+            
+            if(i>0){
+                if(i == 1){
+                    numJuegosM = numJuegos[i];
+                    equipoMenor = equipos[i];
+                } else{
+                    if(numJuegos[i] < numJuegos[i-1] && numJuegos[i] < numJuegosM){
+                        numJuegosM = numJuegos[i];
+                        equipoMenor = equipos[i];
+                    
+                    } else if(numJuegos[i]<numJuegos[i-1] && numJuegos[i] < numJuegosM){
+                        equipoMenor = equipos[i-1];
+                    }
+                }
+                
+            }
+            
+        }
+        out.println("El equipo con menos partidos corresponde a: "+ equipoMenor);
+    } 
+
+    public static void imprimirEquipos5Partidos(String [] equipos, int [] numJuegos){
+        String [] escogerEquipos = new String [0];
+        int cantEquipos=0, conta = 0;
+
+        for(int i = 0; i<equipos.length; i++){
+            if(numJuegos[i] >=5){
+                cantEquipos++;
+            }
+        }
+        escogerEquipos = new String [cantEquipos];
+        for(int i = 0; i<equipos.length; i++){
+            if(numJuegos[i] >=5){
+                escogerEquipos[conta] = equipos[i];
+                conta++;
+            }
+        }
+        out.println("Los equipos con 5 partidos o mas son los siguentes: ");
+        for(int i = 0; i<escogerEquipos.length; i++){
+            out.print(escogerEquipos[i]+" ");
+        }
+
+    }
 
     //FUNCION 10 - Obtiene el nombre de los equipos que superan el promedio general de oponentes por equipo del torneo
     public static void ObtenerEquiposMasOponentes(double promedio, String[] equipos, int[] numOponentes) {
@@ -246,5 +321,7 @@ public class DiegoEmanuelHuertasGonzalez_BernyFabricioSalgadoUlloa_PriscillaPere
         }
         out.print("\n");
     }
+
+
 
 }
