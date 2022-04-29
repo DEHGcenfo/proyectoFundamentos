@@ -13,13 +13,11 @@ public class proyectoParte3 {
         int opcionMenu, cantEquipo = 0;
         double promedioOponentes = 0;
 
-        String [] equipos = new String [0],
-                  resultados = new String [0];
+        String [] equipos = new String [0], resultados = new String [0];
 
-        int [] numJuegos = new int [0], 
-               numOponentes = new int [0];
+        int [] numJuegos = new int [0], numOponentes = new int [0];
     
-        double [] puntajeTotal = new double [0];
+        double [] puntajeTotal = new double [0]; 
 
        do {
         out.println("\n\nOpciones del menu");
@@ -34,7 +32,8 @@ public class proyectoParte3 {
         out.println("9. Imprimir los nombres de equipos con 5 partidos jugados o mas");
         out.println("10. Imprimir el nombre de los equipos con mas oponentes que el promedio de oponentes generales");
         out.println("11. Salir");
-        out.print("Ingrese el numero de la opcion que deseas escoger: ");
+        out.print("\nIngrese el numero de la opcion que deseas escoger:");
+        out.print(" ");
         opcionMenu = Integer.parseInt(in.readLine());
 
 
@@ -60,10 +59,11 @@ public class proyectoParte3 {
             break;
             
             case 4:
-
+                reporteResultados(resultados,equipos);
             break;
             
             case 5:
+                reportePuntajeTotal (puntajeTotal,equipos);
             break;
             
             case 6:
@@ -155,7 +155,7 @@ public class proyectoParte3 {
             resultadoGeneral = "";
             ptsTotal = 0;
 
-            out.print("Ingrese la informacion del equipo " + equipos[j]);
+            out.println("\n Ingrese la informacion del equipo " + equipos[j]);
             
             for (int i=0; i<numJuegos[j]; i++) {
 
@@ -225,6 +225,34 @@ public class proyectoParte3 {
             
         }
     }
+
+    //Funcion 4 - Imprimir el reporte de resultados de los equipos
+
+    public static void reporteResultados(String [] resultados, String [] equipos) throws IOException 
+    {
+        out.println("RESULTADOS GENERALES");
+         
+        for(int i=0; i<resultados.length; i++)
+        {
+            out.println("\nEl reporte general del equipo " + equipos[i] + " es: " + resultados[i]);
+        }
+        
+    }
+
+    //Funcion 5 - Imprimir el reporte de resultados de los equipos
+
+    public static void reportePuntajeTotal(double [] puntajeTotal, String [] equipos) throws IOException 
+    {
+        out.println("PUNTAJE TOTAL");
+
+        for (int i=0; i<puntajeTotal.length ; i++)
+        {
+            out.println ("\n El puntaje total del equipo " + equipos[i] + " es: " + puntajeTotal[i] );
+        }
+    
+    }
+
+
 
     
     //FUNCION 6 - Obtiene el promedio general de todos los openentes diferentes entre cada equipo del torneo
