@@ -1,5 +1,6 @@
 import java.io.*;
-public class DiegoEmanuelHuertasGonzalez_BernyFabricioSalgadoUlloa_PriscillaPereiraArroyo_entregaFinalProyecto {
+
+public class proyectoParte3 {
     static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     static PrintStream out = System.out;
     public static void main(String[] args) throws IOException {
@@ -8,6 +9,7 @@ public class DiegoEmanuelHuertasGonzalez_BernyFabricioSalgadoUlloa_PriscillaPere
 
     public static void menu()throws IOException{
         
+        //Menu Principal 
         int opcionMenu, cantEquipo = 0;
         double promedioOponentes = 0;
 
