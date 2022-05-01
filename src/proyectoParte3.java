@@ -79,7 +79,7 @@ public class proyectoParte3 {
             break;
             
             case 9:
-            imprimirEquipos5Partidos(equipos, numJuegos);
+                imprimirEquipos5Partidos(equipos, numJuegos);
             break;
             
             case 10:
@@ -146,8 +146,9 @@ public class proyectoParte3 {
 
     //Construye el reporte general de resultados solicitando la informacion necesaria al usuario
     public static void construirReporte(String [] equipos, int [] numJuegos, int [] numOponentes, String [] resultados, double [] puntajeTotal) throws IOException{
-        
-        String resultadoGeneral;
+    
+        String resultadoGeneral, equipoOponente = "", snitchEquipoPrimario,  resultadoPartido = "";
+        int ptsEquipoPrimario, ptsEquipoOponente;
         double ptsTotal;
 
         for(int j = 0; j< equipos.length ; j++){
@@ -155,13 +156,17 @@ public class proyectoParte3 {
             resultadoGeneral = "";
             ptsTotal = 0;
 
-            out.println("\n Ingrese la informacion del equipo " + equipos[j]);
+            out.println("\nIngrese la informacion del equipo " + equipos[j]);
             
             for (int i=0; i<numJuegos[j]; i++) {
-
-                int ptsEquipoPrimario, ptsEquipoOponente;
-                String equipoOponente = "", snitchEquipoPrimario,  resultadoPartido = "";
                 
+                equipoOponente = "";
+                snitchEquipoPrimario = "";
+                resultadoPartido = "";
+
+                ptsEquipoPrimario = 0;
+                ptsEquipoOponente = 0;
+   
                 out.print("\nJuego " + (i+1) + " contra: "  );
                 equipoOponente= in.readLine();  
                 
@@ -230,7 +235,7 @@ public class proyectoParte3 {
 
     public static void reporteResultados(String [] resultados, String [] equipos) throws IOException 
     {
-        out.println("RESULTADOS GENERALES");
+        out.println("\nRESULTADOS GENERALES");
          
         for(int i=0; i<resultados.length; i++)
         {
@@ -243,11 +248,11 @@ public class proyectoParte3 {
 
     public static void reportePuntajeTotal(double [] puntajeTotal, String [] equipos) throws IOException 
     {
-        out.println("PUNTAJE TOTAL");
+        out.println("\nPUNTAJE TOTAL");
 
         for (int i=0; i<puntajeTotal.length ; i++)
         {
-            out.println ("\n El puntaje total del equipo " + equipos[i] + " es: " + puntajeTotal[i] );
+            out.println ("\nEl puntaje total del equipo " + equipos[i] + " es: " + puntajeTotal[i] );
         }
     
     }
@@ -267,6 +272,7 @@ public class proyectoParte3 {
         out.println("\nEl promedio de openentes diferentes para cada equipo del torneo es: " + promedio);
         return promedio;
     }
+
     //Funcion 7 - imprime el equipo con mas partidos jugados
     public static void imprimirEquicoMasPartidos(String [] equipos, int [] numJuegos){
         String equipoMayor = "";
@@ -290,6 +296,7 @@ public class proyectoParte3 {
         }
         out.println("El equipo con mas partidos corresponde a: "+ equipoMayor);
     } 
+
     // funcion 8 - Imprime el equipo con menos partidos jugados
     public static void imprimirEquicoMenosPartidos(String [] equipos, int [] numJuegos){
         String equipoMenor = "";
