@@ -71,11 +71,11 @@ public class proyectoParte3 {
             break;
             
             case 7:
-                imprimirEquicoMasPartidos(equipos, numJuegos);
+                imprimirEquipoMasPartidos(equipos, numJuegos);
             break;
             
             case 8:
-                imprimirEquicoMenosPartidos(equipos, numJuegos);
+                imprimirEquipoMenosPartidos(equipos, numJuegos);
             break;
             
             case 9:
@@ -274,14 +274,17 @@ public class proyectoParte3 {
     }
 
     //Funcion 7 - imprime el equipo con mas partidos jugados
-    public static void imprimirEquicoMasPartidos(String [] equipos, int [] numJuegos){
+    public static void imprimirEquipoMasPartidos(String [] equipos, int [] numJuegos){
         String equipoMayor = "";
         int numJuegosM = 0;
         
         for (int i = 0; i<equipos.length; i++){
             
-            if(i>0){
-                if(i==1){
+            
+                if(i==0){
+                    numJuegosM = numJuegos[i];
+                    equipoMayor = equipos[i];
+                }else{
                     if(numJuegos[i] > numJuegos[i-1] && numJuegos[i] > numJuegosM){
                         numJuegosM = numJuegos[i];
                         equipoMayor = equipos[i];
@@ -291,21 +294,21 @@ public class proyectoParte3 {
                     }
                 }
                 
-            }
+            
             
         }
         out.println("El equipo con mas partidos corresponde a: "+ equipoMayor);
     } 
 
     // funcion 8 - Imprime el equipo con menos partidos jugados
-    public static void imprimirEquicoMenosPartidos(String [] equipos, int [] numJuegos){
+    public static void imprimirEquipoMenosPartidos(String [] equipos, int [] numJuegos){
         String equipoMenor = "";
         int numJuegosM = 0;
         
         for (int i = 0; i<equipos.length; i++){
             
-            if(i>0){
-                if(i == 1){
+            
+                if(i == 0){
                     numJuegosM = numJuegos[i];
                     equipoMenor = equipos[i];
                 } else{
@@ -318,7 +321,7 @@ public class proyectoParte3 {
                     }
                 }
                 
-            }
+            
             
         }
         out.println("El equipo con menos partidos corresponde a: "+ equipoMenor);
