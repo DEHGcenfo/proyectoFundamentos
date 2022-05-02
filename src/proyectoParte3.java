@@ -75,7 +75,7 @@ public class proyectoParte3 {
             break;
             
             case 8:
-                imprimirEquipoMenosPartidos(equipos, numJuegos);
+                imprimirEquipoMenosPartidos(equipos, puntajeTotal);
             break;
             
             case 9:
@@ -301,22 +301,22 @@ public class proyectoParte3 {
     } 
 
     // funcion 8 - Imprime el equipo con menos partidos jugados
-    public static void imprimirEquipoMenosPartidos(String [] equipos, int [] numJuegos){
+    public static void imprimirEquipoMenosPartidos(String [] equipos, double [] puntajeTotal){
         String equipoMenor = "";
-        int numJuegosM = 0;
+        double menorPuntaje = 0;
         
         for (int i = 0; i<equipos.length; i++){
             
             
                 if(i == 0){
-                    numJuegosM = numJuegos[i];
+                    menorPuntaje = puntajeTotal[i];
                     equipoMenor = equipos[i];
                 } else{
-                    if(numJuegos[i] < numJuegos[i-1] && numJuegos[i] < numJuegosM){
-                        numJuegosM = numJuegos[i];
+                    if(puntajeTotal[i] < puntajeTotal[i-1] && puntajeTotal[i] < menorPuntaje){
+                        menorPuntaje = puntajeTotal[i];
                         equipoMenor = equipos[i];
                     
-                    } else if(numJuegos[i]<numJuegos[i-1] && numJuegos[i] < numJuegosM){
+                    } else if(puntajeTotal[i]<puntajeTotal[i-1] && puntajeTotal[i] < menorPuntaje){
                         equipoMenor = equipos[i-1];
                     }
                 }
